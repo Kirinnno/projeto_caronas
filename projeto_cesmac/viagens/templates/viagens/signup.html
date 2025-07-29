@@ -1,0 +1,22 @@
+{% extends 'viagens/base.html' %}
+{% block title %}Cadastro{% endblock %}
+{% block content %}
+
+<div class="card mx-auto" style="max-width: 700px;">
+  <div class="card-body">
+    <h2 class="card-title text-center mb-4">Cadastro</h2>
+    <form method="post">
+      {% csrf_token %}
+
+      <h5>Informações Pessoais</h5>
+      {{ profile_form.as_p }}
+
+      <h5 class="mt-4">Informações de Acesso</h5>
+      {{ user_form.as_p }}
+
+      <button type="submit" class="btn btn-success w-100 mt-3">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

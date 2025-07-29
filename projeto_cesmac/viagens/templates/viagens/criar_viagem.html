@@ -1,0 +1,15 @@
+{% extends 'viagens/base.html' %}
+{% block title %}Criar Viagem{% endblock %}
+{% block content %}
+
+<div class="card mx-auto" style="max-width: 600px;">
+  <div class="card-body">
+    <h2 class="card-title text-center mb-4">Criar Viagem</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success w-100">Salvar Viagem</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'viagens/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="text-center">
+  <h1 class="mb-4">Bem-vindo ao Sistema de Viagens CESMAC</h1>
+  <p class="lead">Aqui você pode cadastrar viagens ou procurar viagens disponíveis.</p>
+  {% if user.is_authenticated %}
+    <div class="mt-4">
+      <a href="{% url 'listar_viagens' %}" class="btn btn-primary me-2">Ver Viagens</a>
+      <a href="{% url 'criar_viagem' %}" class="btn btn-success">Criar Viagem</a>
+    </div>
+  {% else %}
+    <div class="mt-4">
+      <a href="{% url 'login' %}" class="btn btn-primary me-2">Fazer Login</a>
+      <a href="{% url 'signup' %}" class="btn btn-success">Criar Conta</a>
+    </div>
+  {% endif %}
+</div>
+
+<div class="text-center mt-5">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG9xaXE4bWN3NWNlenp3MnVtOHZkN3F0aW1hemowcXc2NjNzeHBxeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UmhVchDhZxveU/giphy.gif"
+       alt="DRIFT"
+       class="img-fluid"
+       style="max-height: 350px; border-top: 2px solid #ccc; margin-top: 3rem;">
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'viagens/base.html' %}
+{% block title %}Detalhes da Viagem{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Detalhes da Viagem</h2>
+
+  <div class="card p-4">
+    <h5 class="card-title">{{ viagem.origem }} → {{ viagem.destino }}</h5>
+    <p><strong>Horário:</strong> {{ viagem.horario }}</p>
+    <p><strong>Preço:</strong> R$ {{ viagem.preco }}</p>
+    <p><strong>Vagas disponíveis:</strong> {{ viagem.vagas }}</p>
+
+    {% if viagem.vagas > 0 %}
+      <form method="post" action="{% url 'reservar_viagem' viagem.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success mt-2">Reservar</button>
+      </form>
+    {% else %}
+      <div class="alert alert-warning mt-3">
+        Nenhuma vaga disponível.
+      </div>
+    {% endif %}
+  </div>
+
+  <a href="{% url 'listar_viagens' %}" class="btn btn-secondary mt-4">Voltar</a>
+</div>
+{% endblock %}

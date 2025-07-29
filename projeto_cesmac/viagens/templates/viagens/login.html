@@ -1,0 +1,38 @@
+{% extends 'viagens/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<style>
+  body {
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>
+
+<div class="d-flex justify-content-center pt-5">
+  <div class="card" style="width: 400px;">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label>Nome de Usuário</label>
+          <input type="text" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Senha</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Entrar</button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a href="{% url 'signup' %}" class="btn btn-outline-primary w-100">
+          Não tem login? Cadastre-se
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+{% endblock %}
